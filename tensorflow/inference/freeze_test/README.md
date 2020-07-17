@@ -30,7 +30,7 @@ data storage and stream fashion.
 
 
 ### Solve method
-1. At first. Build a fake infer-graph. Fake means this graph should imitate the real training graph. If its distributed, the fake infer-graph should build same copy on every nodes, to collect all names as in the real distributed graph. If the graph has redundant nodes, use tf.python.tools.optimize_for_inference_lib.optimize_for_inference tool to speed up the inference.
+1. At first. Build a fake infer-graph. Fake means this graph should imitate the real training graph. If its distributed, the fake infer-graph should build same copy on every nodes, to collect all names as in the real distributed graph. If the graph has redundant nodes, use tf.python.tools.optimize_for_inference_lib.optimize_for_inference tool to speed up the inference, if the nodes in are recoverable for metagraph.
 
 2. Dump the small fake model structure to SavedModel format, which has the following dir tree:
 ```bash
