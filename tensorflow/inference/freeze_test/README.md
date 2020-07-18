@@ -41,9 +41,9 @@ data storage and stream fashion.
 |       `-- variables.index
 ```
 
-3. Start the real training process. And save the model to checkpoint, where stable in use, while setting max_to_keep = 1. If it's distributed, save the checkpoint in shared directory such as HDFS or Ceph, etc..
+3. Start the real training process. And save the model to checkpoint, where stable in use. If it's distributed, save the checkpoint in shared directory such as HDFS or Ceph, etc..
 
-4. Copy the .data-00000-of-00001 and .index file to the SavedModel directory and rename then as variables.data-00000-of-00001, and variables.index
+4. Copy the .data-00000-of-00001 and .index file to the SavedModel directory and rename then as variables.data-00000-of-00001, and variables.index. If there are several pieces of .data files, you need to rename all the prefix to variables, (variables.data-0000${index}-of-0000${num})
 
 5. Now the new SavedModel is ready for use.
 
